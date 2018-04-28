@@ -4,9 +4,10 @@ import com.google.common.collect.Maps;
 import com.lyf.generate.datafrom.CreateDataSource;
 import com.lyf.generate.datafrom.DataSourceFactory;
 import com.lyf.generate.dto.Column;
-import com.lyf.utils.DateUtils;
-import com.lyf.utils.FreeMarkers;
-import com.lyf.utils.StringHelper;
+import com.lyf.generate.utils.DateUtils;
+import com.lyf.generate.utils.FreeMarkers;
+import com.lyf.generate.utils.ReadTable;
+import com.lyf.generate.utils.StringHelper;
 import freemarker.template.Configuration;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
@@ -19,7 +20,7 @@ import java.util.List;
 import java.util.Map;
 
 // 静态导入所有配置属性
-import static com.lyf.utils.CodeResourceUtil.*;
+import static com.lyf.generate.utils.CodeResourceUtil.*;
 
 /**
  * 代码生成器

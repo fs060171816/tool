@@ -1,4 +1,4 @@
-package com.lyf.utils;
+package com.lyf.generate.utils;
 
 // 静态导入所有配置属性
 import java.sql.*;
@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static com.lyf.utils.CodeResourceUtil.*;
+import static com.lyf.generate.utils.CodeResourceUtil.*;
 
 /**
  * JDBC相关操作

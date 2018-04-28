@@ -1,4 +1,4 @@
-package com.lyf.utils;
+package com.lyf.generate.utils;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;

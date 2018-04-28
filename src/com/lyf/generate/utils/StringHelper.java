@@ -1,4 +1,4 @@
-package com.lyf.utils;
+package com.lyf.generate.utils;
 
 public class StringHelper {
 

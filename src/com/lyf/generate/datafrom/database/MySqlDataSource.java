@@ -1,7 +1,5 @@
 package com.lyf.generate.datafrom.database;
 
-import static com.lyf.utils.CodeResourceUtil.getDatabaseName;
-
 /**
  * Created by Administrator on 2018/3/28.
  */

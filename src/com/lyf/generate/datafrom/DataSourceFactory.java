@@ -2,7 +2,7 @@ package com.lyf.generate.datafrom;
 
 import com.lyf.generate.datafrom.database.MySqlDataSource;
 import com.lyf.generate.datafrom.database.OracleDataSource;
-import com.lyf.utils.CodeResourceUtil;
+import com.lyf.generate.utils.CodeResourceUtil;
 
 /**
  * 数据源简单工厂

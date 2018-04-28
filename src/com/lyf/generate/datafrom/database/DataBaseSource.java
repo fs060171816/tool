@@ -1,10 +1,10 @@
 package com.lyf.generate.datafrom.database;
 
-import com.lyf.generate.TableConvert;
+import com.lyf.generate.utils.TableConvert;
 import com.lyf.generate.dto.Column;
 import com.lyf.generate.datafrom.CreateDataSource;
-import com.lyf.utils.CodeResourceUtil;
-import com.lyf.utils.JDBCUtils;
+import com.lyf.generate.utils.CodeResourceUtil;
+import com.lyf.generate.utils.JDBCUtils;
 
 import java.text.MessageFormat;
 import java.util.ArrayList;

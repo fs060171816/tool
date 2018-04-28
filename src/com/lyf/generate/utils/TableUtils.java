@@ -1,4 +1,4 @@
-package com.lyf.utils;
+package com.lyf.generate.utils;
 
 import com.lyf.generate.dto.Column;
 import org.apache.commons.lang.StringUtils;

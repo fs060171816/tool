@@ -1,8 +1,5 @@
 package com.lyf.generate.datafrom;
 
-import com.lyf.utils.CodeResourceUtil;
-import com.lyf.utils.JDBCUtils;
-
 import java.util.List;
 import java.util.Map;
 
