@@ -1,26 +1,25 @@
 package com.lyf.generate;
+
+import com.google.common.collect.Maps;
 import com.lyf.generate.datafrom.CreateDataSource;
 import com.lyf.generate.datafrom.DataSourceFactory;
 import com.lyf.generate.dto.Column;
-import com.lyf.utils.*;
+import com.lyf.utils.DateUtils;
+import com.lyf.utils.FreeMarkers;
+import com.lyf.utils.StringHelper;
 import freemarker.template.Configuration;
-
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.io.DefaultResourceLoader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.util.List;
+import java.util.Map;
 
-import com.google.common.collect.Maps;
 // 静态导入所有配置属性
 import static com.lyf.utils.CodeResourceUtil.*;
-
 
 /**
  * 代码生成器
@@ -28,9 +27,9 @@ import static com.lyf.utils.CodeResourceUtil.*;
  * @version 2013-03-15
  */
 public class GenerateMain{
-    
+
     private static Logger logger = LoggerFactory.getLogger(GenerateMain.class);
-    
+
     public static void main(String[] args) throws Exception{
         // 获得数据源
         CreateDataSource dataSource = DataSourceFactory.getDataSource();
@@ -77,15 +76,14 @@ public class GenerateMain{
         String beginName = javaPath + separator + model.get("moduleName") + separator;
 
         ReadTable dbFiledUtil = new ReadTable();
-        List columns = dbFiledUtil.readTableColumn(tableName);
+        List<Column> columns = dbFiledUtil.readTableColumn(tableName);
         model.put("columns", columns);
-        List originalColumns = dbFiledUtil.readOriginalTableColumn(tableName);
-        model.put("originalColumns", originalColumns);
-        for (Iterator iterator = originalColumns.iterator(); iterator.hasNext();)
-        {
-            Column c = (Column)iterator.next();
-            if (c.getFieldName().toLowerCase().equals("id"))
+        model.put("originalColumns", columns);
+        for (Column c:columns){
+            if (c.getFieldName().toLowerCase().equals("id")) {
                 model.put("primary_key_type", c.getFieldType());
+                break;
+            }
         }
         
         // 生成 Model

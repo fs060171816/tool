@@ -19,7 +19,12 @@ public class MySqlDataSource extends DataBaseSource{
     }
 
     @Override
-    public String getColumnsSql(String tableName) {
-        return null;
+    public String getColumnsSql() {
+        StringBuffer sb = new StringBuffer("SELECT COLUMN_NAME COLNAME,DATA_TYPE DATATYPE,");
+        sb.append("COLUMN_COMMENT COLCOMMENT,NUMERIC_PRECISION COLPRECISION,")
+        .append("NUMERIC_SCALE COLSCALE,CHARACTER_MAXIMUM_LENGTH CHARLEN,IS_NULLABLE NULLABLE")
+        .append("FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = {0} AND TABLE_SCHEMA = {1}");
+
+        return sb.toString();
     }
 }

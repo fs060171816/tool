@@ -1,10 +1,12 @@
 package com.lyf.generate.datafrom.database;
 
+import com.lyf.generate.TableConvert;
 import com.lyf.generate.dto.Column;
 import com.lyf.generate.datafrom.CreateDataSource;
 import com.lyf.utils.CodeResourceUtil;
 import com.lyf.utils.JDBCUtils;
 
+import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -19,9 +21,23 @@ public abstract class DataBaseSource implements CreateDataSource {
      * 查询生成数据
      * @return
      */
+    @Override
     public List<Map<String,Object>> queryGenerateData() throws Exception {
         return JDBCUtils.querySQL(getTableSql(CodeResourceUtil.getDatabaseName(),CodeResourceUtil.getTableName()));
     }
+
+
+    /***
+     * 查询数据表数据
+     * @return
+     */
+    @Override
+    public List<Map<String,Object>> queryColumnsData(String tableName) throws Exception{
+        // 获得表数据
+        String sql = MessageFormat.format(getColumnsSql(),new Object[] {tableName,TableConvert.getV(CodeResourceUtil.getDatabaseName())});
+        return JDBCUtils.querySQL(sql);
+    }
+
 
     /***
      * 根据表名加载行信息
@@ -43,8 +59,7 @@ public abstract class DataBaseSource implements CreateDataSource {
 
     /***
      * 获得行元数据来源SQL
-     * @param tableName
      * @return
      */
-    public abstract String getColumnsSql(String tableName);
+    public abstract String getColumnsSql();
 }

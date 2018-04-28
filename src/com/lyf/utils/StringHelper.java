@@ -1,4 +1,5 @@
 package com.lyf.utils;
+
 public class StringHelper {
 
 	public static String getClassName(String sqlName, String prefixs) {
