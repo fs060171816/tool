@@ -14,7 +14,7 @@ import com.alibaba.dubbo.config.annotation.Service;
  *	对外接口实现类
  *	@author ${classAuthor}
  */
-@Service(version="1.0.0")
+@Service
 public class Default${ClassName}Service extends AbstractBaseRedisDao<String,${ClassName}Model> implements ${ClassName}Service {
 
 	@Autowired
