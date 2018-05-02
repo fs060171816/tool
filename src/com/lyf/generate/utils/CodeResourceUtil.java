@@ -3,7 +3,7 @@ import java.util.ResourceBundle;
 
 public class CodeResourceUtil{
 	
-	private static final ResourceBundle bundlePath = ResourceBundle.getBundle("htd/generate/generate_config");
+	private static final ResourceBundle bundlePath = ResourceBundle.getBundle("com/lyf/generate/generate_config");
     
     public CodeResourceUtil(){
     }
@@ -50,6 +50,10 @@ public class CodeResourceUtil{
     
     public static final String getTableRemovePrefixes(){
         return bundlePath.getString("tableRemovePrefixes");
+    }
+
+    public static final String getTableContainPrefixes(){
+        return bundlePath.getString("tableContainPrefixes");
     }
     
     public static final String getSystemEncoding(){

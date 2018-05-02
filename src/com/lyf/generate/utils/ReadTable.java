@@ -36,7 +36,7 @@ public class ReadTable{
         // 获得数据源
         CreateDataSource dataSource = DataSourceFactory.getDataSource();
         // 返回类型
-        List<Map<String,Object>> dataList = dataSource.queryColumnsData(tableName.toUpperCase());
+        List<Map<String,Object>> dataList = dataSource.queryColumnsData(TableConvert.getV(tableName.toUpperCase()));
 
         for(Map<String,Object> data:dataList){
             Column column = getColumn(data);

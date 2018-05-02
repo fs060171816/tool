@@ -22,6 +22,8 @@ public class JDBCUtils {
      * @throws Exception
      */
     public static List<Map<String,Object>> querySQL(String sql) throws Exception{
+        System.out.println(sql);
+
         // 返回值
         List<Map<String,Object>> result = new ArrayList<>();
         Connection conn = null;

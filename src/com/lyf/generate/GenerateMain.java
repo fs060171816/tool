@@ -38,12 +38,12 @@ public class GenerateMain{
         List<Map<String,Object>> dataList = dataSource.queryGenerateData();
         if(dataList != null && dataList.size() > 0){
             String tbName = null,comment = null;
+            System.out.println(dataList);
             for(Map<String,Object> data:dataList){
                 tbName = String.valueOf(data.get("TBNAME"));
                 comment = String.valueOf(data.get("TBCOMM"));
-                if (tbName.toUpperCase().startsWith("T_")){
-                    createCodeByTable(tbName, comment == null ? "" : comment);
-                }
+
+                createCodeByTable(tbName, comment == null ? "" : comment);
             }
         }
     }
