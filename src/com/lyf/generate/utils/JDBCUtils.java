@@ -43,11 +43,11 @@ public class JDBCUtils {
 
             Map<String,Object> rsMap = null;
             while (rs.next()){
-                for(int i=1;i< count;i++){
-                    rsMap = new HashMap<>();
+                rsMap = new HashMap<>();
+                for(int i=1;i<= count;i++){
                     rsMap.put(metaData.getColumnName(i),rs.getString(i));
-                    result.add(rsMap);
                 }
+                result.add(rsMap);
             }
         } catch (Exception e) {
             e.printStackTrace();

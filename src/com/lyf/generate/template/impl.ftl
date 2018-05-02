@@ -2,12 +2,12 @@ package ${packageName}.${moduleName}.dao.impl;
 
 import java.util.Map;
 import net.sf.json.JSONArray;
-import org.boss.models.${ClassName}Model;
+import ${packagePath}.models.${ClassName}Model;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.stereotype.Service;
-import web.boss.dao.${ClassName}Dao;
-import web.boss.mappings.${ClassName}Mapping;
+import ${packagePath}.dao.${ClassName}Dao;
+import ${packagePath}.mappings.${ClassName}Mapping;
 
 /**
  *	${functionName}dao实现类

@@ -4,10 +4,7 @@ import com.google.common.collect.Maps;
 import com.lyf.generate.datafrom.CreateDataSource;
 import com.lyf.generate.datafrom.DataSourceFactory;
 import com.lyf.generate.dto.Column;
-import com.lyf.generate.utils.DateUtils;
-import com.lyf.generate.utils.FreeMarkers;
-import com.lyf.generate.utils.ReadTable;
-import com.lyf.generate.utils.StringHelper;
+import com.lyf.generate.utils.*;
 import freemarker.template.Configuration;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
@@ -43,7 +40,7 @@ public class GenerateMain{
                 tbName = String.valueOf(data.get("TBNAME"));
                 comment = String.valueOf(data.get("TBCOMM"));
 
-                createCodeByTable(tbName, comment == null ? "" : comment);
+                createCodeByTable(tbName, NUtils.replaceNull(comment,""));
             }
         }
     }
@@ -69,7 +66,7 @@ public class GenerateMain{
         String classPath = new DefaultResourceLoader().getResource("").getFile().getPath();
         // 代码模板配置
         Configuration cfg = new Configuration();
-        cfg.setDirectoryForTemplateLoading(new File(classPath + separator + "htd/generate/template"));
+        cfg.setDirectoryForTemplateLoading(new File(classPath + separator + "com/lyf/generate/template"));
         
         // 获得模板变量
         Map<String, Object> model = createModel(tableName,functionName);
@@ -203,7 +200,8 @@ public class GenerateMain{
         model.put("urlPrefix",moduleName + getSepSubModuleName(subModuleName,"/") + "/" + className);
         model.put("viewPrefix", "/modules/"+ model.get("urlPrefix"));
         model.put("permissionPrefix", moduleName + getSepSubModuleName(subModuleName,":") + ":" + className);
-
+        // 包地址
+        model.put("packagePath",packageName+"."+moduleName+getSepSubModuleName(subModuleName,"."));
         return model;
     }
 

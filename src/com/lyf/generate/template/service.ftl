@@ -2,7 +2,7 @@ package ${packageName}.${moduleName}.mappings;
 
 import java.util.List;
 import java.util.Map;
-import org.boss.models.${ClassName}Model;
+import ${packagePath}.models.${ClassName}Model;
 
 /**
  * ${functionName}mybatis接口

@@ -2,20 +2,19 @@ package web.boss.services;
 
 import java.util.List;
 import java.util.Map;
-import org.boss.models.${ClassName}Model;
-import org.boss.services.${ClassName}Service;
+import ${packagePath}.models.${ClassName}Model;
+import ${packagePath}.services.${ClassName}Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.util.ResultModel;
-import web.boss.dao.${ClassName}Dao;
-import web.communal.AbstractBaseRedisDao;
-import com.alibaba.dubbo.config.annotation.Service;
+import ${packagePath}.dao.${ClassName}Dao;
+import org.springframework.stereotype.Service;
 
 /**
  *	对外接口实现类
  *	@author ${classAuthor}
  */
 @Service
-public class Default${ClassName}Service extends AbstractBaseRedisDao<String,${ClassName}Model> implements ${ClassName}Service {
+public class Default${ClassName}Service implements ${ClassName}Service {
 
 	@Autowired
 	private ${ClassName}Dao ${className}Dao;
@@ -57,7 +56,7 @@ public class Default${ClassName}Service extends AbstractBaseRedisDao<String,${Cl
 	
 	/**
 	 * 根据${functionName}对象查询${functionName}分页信息list
-	 * @param Map
+	 * @param params
 	 * @return
 	 */
 	public String searchPageData(Map<String, Object> params){

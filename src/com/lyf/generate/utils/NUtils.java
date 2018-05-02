@@ -54,7 +54,7 @@ public class NUtils {
      * @return
      */
     public static String replaceNull(String str,String defVal){
-        return isEmpty(str) ? defVal : str;
+        return isEmpty(str) || "null".equalsIgnoreCase(str) ? defVal : str;
     }
 
     /***
